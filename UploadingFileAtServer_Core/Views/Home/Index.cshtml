@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Sigle File Uplaod";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Upload Signle File</h1>
+
+
+    <form method="post" asp-controller="Home" asp-action="SingleFileUpoad" enctype="multipart/form-data">
+
+        <input type="file" name="file" />
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<hr />
+
+
+<div class="text-center">
+    <h1 class="display-4">Upload Multiple Files</h1>
+
+
+    <form method="post" asp-controller="Home" asp-action="MultiPleFilesUpload" enctype="multipart/form-data">
+
+        <input type="file" name="files" multiple />
+        <button type="submit">Multiple Files</button>
+    </form>
+</div>

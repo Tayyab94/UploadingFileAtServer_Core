@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Workign With Vidoes</h1>
+
+<div>
+    <form asp-controller="Video" asp-action="Index" method="post" enctype="multipart/form-data">
+
+        <input type="file" name="file" accept="video/mp4" />
+        <input type="submit" value="Save Video" />
+        <br />
+
+        <input type="file" name="file" accept="video/mp4" onchange="OpenFile(event)" />
+        <input type="number" name="start" />
+        <input type="number" name="end" />
+    </form>
+</div>
+
+
+<br />
+<hr />
+
+<div>
+
+    <video controls="controls" muted width="300" height="300" id="tempVideo" type="video/mp4"></video>
+</div>
+
+<br />
+<hr />
+
+<div>
+
+    <video controls muted width="300" height="300" src="~/converted.mp4" type="video/mp4"></video>
+</div>
+
+
+@section Scripts{
+
+
+    <script>
+
+        function OpenFile(e) {
+            var file = e.target.files[0];
+
+            var videoPlayer = document.getElementById("tempVideo");
+
+            var url = URL.createObjectURL(file);
+
+            videoPlayer.setAttribute('src', url);
+        }
+
+
+    </script>
+
+
+}
+
+
+

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "UploadFile_JaveScript";
+}
+
+<h1>UploadFile_JaveScript</h1>
+
+
+<div class="text-center">
+    <h1 class="display-4">Upload Signle File</h1>
+
+
+    <form>
+
+        <input type="file" id="sb" name="file" />
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+@section Scripts{ 
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#sb").click(function (e) {
+
+            var file = e.target.files[0]; // specified The specific file 
+
+            var formDat = new FormData();
+
+              formDat.append("file", file);
+            $.ajax({
+                type: "Get",
+                url: "/Home/SingleFileUpoad",
+                processData: false,
+                contentType: false,
+                data: {
+                   formDat
+                },
+                success: function (data) {
+                    alert(data);
+                }
+                , error: function () {
+                    alert(data);
+                }
+
+            });
+
+        });
+
+    });
+
+    function UploadFile(e) {
+        
+
+        return formDat;
+    }
+</script>
+}
